@@ -1,0 +1,17 @@
+{
+  "name": "botreadlogs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "botreadlogs.js",
+  "scripts": {
+    "dev": "nodemon botreadlogs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.0.14",
+    "nodemon": "^2.0.15",
+    "telegraf": "^3.39.0"
+  }
+}
