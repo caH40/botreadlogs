@@ -27,19 +27,23 @@ bot.catch((err, ctx) => {
 	console.log(`Ooops, encountered an error for ${ctx.updateType}`, err)
 })
 bot.start(async ctx => {
-	await ctx.reply(`Привет! from readlogs ${ctx.message.from.first_name ?? 'Незнакомец'}!`)
+	await ctx.reply(`Привет! ${ctx.message.from.first_name ?? 'Незнакомец'}! Надеюсь Вы админ, в противном случае Вы не сможете воспользоваться данным сервисом.`)
 })
 bot.command('logs', async ctx => {
-
-	await ctx.reply('chose the day', {
-		reply_markup: {
-			inline_keyboard: [
-				[
-					{ text: 'BotCurrant', callback_data: 'BotCurrant' }
+	if (ctx.message.from.username === 'Aleksandr_BV') {
+		await ctx.reply('chose the day', {
+			reply_markup: {
+				inline_keyboard: [
+					[
+						{ text: 'BotCurrant', callback_data: 'BotCurrant' }
+					]
 				]
-			]
-		}
-	})
+			}
+		})
+	} else {
+		await ctx.reply('У вас нет прав пользоваться сервисом, срочно покинте данный чат!')
+	}
+
 })
 
 bot.on('callback_query', async ctx => {
